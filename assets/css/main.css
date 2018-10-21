@@ -1,11 +1,11 @@
 /* Small devices (landscape phones, less than 768px) */
-@media (min-width: 320px) and (max-width: 1000px) {
+@media (min-width: 320px) and (max-width: 999px) {
   .click-bl {
     width: 5em;
     height: 5em;
     margin-top: -5em;
     margin-left: -5em;
-    top: 20%;
+    top: 10%;
     left: 10%;
     position: fixed;
   }
@@ -14,7 +14,7 @@
     display: contents;
   }
 
-  .counter-text {
+  .Mytext {
     font-size: 5rem;
   }
 }
@@ -23,9 +23,9 @@
   .click-bl {
     width: 3em;
     height: 3em;
-    margin-top: -3em;
-    margin-left: -3em;
-    top: 20%;
+    margin-top: 0em;
+    margin-left: 0em;
+    top: 10%;
     left: 10%;
     position: fixed;
   }
@@ -42,7 +42,7 @@
   height: 2em;
   margin-top: -2em;
   margin-left: -2em;
-  top: 20%;
+  top: 10%;
   left: 10%;
   position: fixed;
 }
@@ -50,4 +50,10 @@
 .count {
   display: contents;
 }
+}
+.scr-width {
+    display: contents;
+}
+.scr-height {
+    display: contents;
 }

@@ -18,8 +18,10 @@
 <body>
   <div class="container-fluid">
     <div class="row">
-      <h1 class="counter-text">Counter: <div class="count">0</div>  </h1>
-      <div class="col" id="pos-1">
+      <h1 class="Mytext">Counter: <div class="count">0</div>
+        <br>Screen param width: <div class="scr-width">0</div> height: <div class="scr-height">0</div>
+      </h1>
+      <div class="col">
         <div class="bg-danger click-bl"></div>
       </div>
     </div>
@@ -32,19 +34,39 @@
   <!-- Custom JS -->
   <script>
     var WhatIsCount = 0;
+    var ScrWidth = 0;
+    var ScrHeight = 0;
 
     function getRandom(min, max) {
       return Math.floor(Math.random() * (max - min)) + min;
     }
 
+
     $('body').on("click", ".click-bl", function() {
       WhatIsCount = WhatIsCount + 1;
       $('.count').html(WhatIsCount);
       $('.click-bl').css({
-        top: getRandom(2, 10) + "0%",
+        top: getRandom(1, 10) + "0%",
         left: getRandom(1, 10) + "0%"
       });
     });
+
+
+
+    //$(document).ready(function() {
+
+    function UpdateWindowParam() {
+      $('.scr-width').html($(window).width());
+      $('.scr-height').html($(window).height());
+    }
+
+    UpdateWindowParam();
+
+    $(window).resize(function() {
+      UpdateWindowParam();
+    });
+
+    //  });
   </script>
 </body>
 
