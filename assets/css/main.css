@@ -1,0 +1,13 @@
+/* MY OWN CSS */
+.click-bl {
+  width: 2em;
+  height: 2em;
+  margin-top: -2em;
+  margin-left: -2em;
+  top: 10%;
+  left: 10%;
+  position: fixed;
+}
+.count {
+  display: contents;
+}

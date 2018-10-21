@@ -1,0 +1,58 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Browser simple cliker">
+  <meta name="keywords" content="HTML,CSS,JavaScript,Ningaro">
+  <meta name="author" content="Ningaro">
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <h3>Counter: <div class="count">0</div></h3>
+      <div class="col" id="pos-1">
+        <div class="bg-danger click-bl"></div>
+      </div>
+      <div class="col" id="pos-2"></div>
+      <div class="col" id="pos-3"></div>
+      <div class="col" id="pos-4"></div>
+      <div class="col" id="pos-5"></div>
+      <div class="col" id="pos-6"></div>
+    </div>
+  </div>
+
+  <!-- Javascript -->
+  <script src="assets\js\jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="assets\js\bootstrap.min.js"></script>
+  <!-- Custom JS -->
+  <script>
+    var NowPos;
+    var NewPos;
+    var WhatIsCount = 0;
+
+    function getRandom(min, max) {
+      return Math.floor(Math.random() * (max - min)) + min;
+    }
+
+    $('body').on("click", ".click-bl", function() {
+      WhatIsCount = WhatIsCount + 1;
+      $('.count').html(WhatIsCount);
+      NowPos = '#' + $(this).parent().attr("id");
+      $(NowPos).html('');
+      NewPos = "#pos-" + getRandom(1, 7);
+      $(NewPos).html('<div class="bg-danger click-bl"></div>');
+      $('.click-bl').css({
+        top: getRandom(1,10) + "0%",
+        left: getRandom(1,10) + "0%"
+      });
+      console.log('End');
+    });
+  </script>
+</body>
+
+</html>
