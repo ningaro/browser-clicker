@@ -1,10 +1,10 @@
 /* Small devices (landscape phones, less than 768px) */
 @media (min-width: 320px) and (max-width: 999px) {
   .click-bl {
-    width: 5em;
-    height: 5em;
-    margin-top: -5em;
-    margin-left: -5em;
+    width: 2em;
+    height: 2em;
+    margin-top: -1em;
+    margin-left: -1em;
     top: 50%;
     left: 50%;
     position: fixed;
@@ -15,7 +15,7 @@
   }
 
   .Mytext {
-    font-size: 50px;
+    font-size: 2rem;
   }
 }
 
