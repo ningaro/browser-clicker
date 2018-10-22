@@ -36,7 +36,6 @@
 }
 
 @media (min-width: 1281px) {
-/* MY OWN CSS */
 .click-bl {
   width: 2em;
   height: 2em;
@@ -51,9 +50,15 @@
   display: contents;
 }
 }
+
+  /* MY OWN CSS */
 .scr-width {
     display: contents;
 }
 .scr-height {
     display: contents;
+}
+
+.click-bl{
+-webkit-transition: all 1s ease; -moz-transition: all 1s ease; -o-transition: all 1s ease; -ms-transition: all 1s ease; transition: all 1s ease;
 }
