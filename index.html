@@ -23,9 +23,9 @@
 <body>
   <div class="container-fluid">
     <div class="row">
-      <h1 class="Mytext">Counter: <div class="count">0</div>
-        <div class="Mytext timer"></div>
-        <!--<br>Screen param width: <div class="scr-width">0</div> height: <div class="scr-height">0</div> -->
+      <h1 class="Mytext">Counter: <div class="count">0</div> (<div class="top-count">0</div>)
+        <div class="Mytext timer">
+          <!--<br>Screen param width: <div class="scr-width">0</div> height: <div class="scr-height">0</div> -->
       </h1>
       <div class="col">
         <div class="bg-color click-bl"></div>
@@ -43,6 +43,7 @@
     var ScrWidth = 0;
     var ScrHeight = 0;
     var GameStatus = 0;
+    var TopSessionCount = 0;
     var NowTimerCount;
 
     function getRandom(min, max) {
@@ -60,12 +61,16 @@
         //Установка таймера
         var timerId = setInterval(function() {
           NowTimerCount = $('.timer-time').html();
-          $('.timer-time').html((parseFloat(NowTimerCount) - 0.5).toFixed(1));
-          NowTimerCount = NowTimerCount - 0.5;
+          $('.timer-time').html((parseFloat(NowTimerCount) - 0.1).toFixed(1));
+          NowTimerCount = NowTimerCount - 0.1;
           if (NowTimerCount <= 0) {
             console.log('Это конец!! ' + NowTimerCount);
             clearInterval(timerId);
             alert('Время закончилось! Ваш счет: ' + WhatIsCount);
+            if (TopSessionCount < WhatIsCount) {
+              TopSessionCount = WhatIsCount;
+              $('.top-count').html(TopSessionCount);
+            }
             WhatIsCount = 0;
             $('.count').html(WhatIsCount);
             $('.click-bl').css({
@@ -74,7 +79,7 @@
             });
             GameStatus = 0;
           }
-        }, 500);
+        }, 100);
 
         GameStatus = 1;
 
@@ -100,10 +105,7 @@
       });
     });
 
-
-
-    //$(document).ready(function() {
-
+//Функции расчета окна
     function UpdateWindowParam() {
       $('.scr-width').html($(window).width());
       $('.scr-height').html($(window).height());
@@ -115,7 +117,6 @@
       UpdateWindowParam();
     });
 
-    //  });
   </script>
 </body>
 

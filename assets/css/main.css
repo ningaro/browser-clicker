@@ -89,6 +89,10 @@
   transition: all 0.25s ease;
 }
 
+.top-count {
+  display: contents;
+}
+
 .Mytext {
   -webkit-touch-callout: none;
   /* iOS Safari */
