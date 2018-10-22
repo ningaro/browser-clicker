@@ -1,10 +1,15 @@
+<!doctype html>
 <html>
 
 <head>
-  <meta charset="UTF-8">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
   <meta name="description" content="Browser simple cliker">
   <meta name="keywords" content="HTML,CSS,JavaScript,Ningaro">
   <meta name="author" content="Ningaro">
+
 
   <title>Browser Cliker</title>
 
@@ -19,10 +24,11 @@
   <div class="container-fluid">
     <div class="row">
       <h1 class="Mytext">Counter: <div class="count">0</div>
-        <br>Screen param width: <div class="scr-width">0</div> height: <div class="scr-height">0</div>
+        <div class="Mytext timer"></div>
+        <!--<br>Screen param width: <div class="scr-width">0</div> height: <div class="scr-height">0</div> -->
       </h1>
       <div class="col">
-        <div class="bg-danger click-bl"></div>
+        <div class="bg-color click-bl"></div>
       </div>
     </div>
   </div>
@@ -36,6 +42,8 @@
     var WhatIsCount = 0;
     var ScrWidth = 0;
     var ScrHeight = 0;
+    var GameStatus = 0;
+    var NowTimerCount;
 
     function getRandom(min, max) {
       return Math.floor(Math.random() * (max - min)) + min;
@@ -43,6 +51,47 @@
 
 
     $('body').on("click", ".click-bl", function() {
+
+      //Проверка на первый клик
+      if (GameStatus == 0) {
+
+        $(".Timer").html('\n Timer: <div class="timer-time">15.0</div>')
+
+        //Установка таймера
+        var timerId = setInterval(function() {
+          NowTimerCount = $('.timer-time').html();
+          $('.timer-time').html((parseFloat(NowTimerCount) - 0.5).toFixed(1));
+          NowTimerCount = NowTimerCount - 0.5;
+          if (NowTimerCount <= 0) {
+            console.log('Это конец!! ' + NowTimerCount);
+            clearInterval(timerId);
+            alert('Время закончилось! Ваш счет: ' + WhatIsCount);
+            WhatIsCount = 0;
+            $('.count').html(WhatIsCount);
+            $('.click-bl').css({
+              top: "50%",
+              left: "50%"
+            });
+            GameStatus = 0;
+          }
+        }, 500);
+
+        GameStatus = 1;
+
+      } else {
+
+        NowTimerCount = $('.timer-time').html();
+        $('.timer-time').html(parseInt(NowTimerCount) + 0.5);
+        $('.timer-time').after(" <div class='Mytext plus-time'>+0.5</div>");
+        setTimeout(function() {
+          $('.plus-time').css("opacity", '0');
+          setTimeout(function() {
+            $('.plus-time').remove();
+          }, 250);
+        }, 250);
+
+      } // Конец обработки превого клика
+
       WhatIsCount = WhatIsCount + 1;
       $('.count').html(WhatIsCount);
       $('.click-bl').css({
